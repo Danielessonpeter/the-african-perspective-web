@@ -1,3 +1,11 @@
+terraform {
+  backend "s3" {
+    bucket = "tap-terraform-state-999" # This must match your actual state bucket name
+    key    = "production/terraform.tfstate"
+    region = "eu-north-1" # Based on your error, the bucket is here
+  }
+}
+
 provider "aws" {
   region = "us-east-1"
 }
